@@ -39,4 +39,9 @@ export class CommentsService {
   findUserComments(userId: number) {
     return this.commentRepository.find({ where: { user: { id: userId } } });
   }
+  async findTopicComments(topicId: number) {
+    return await this.commentRepository.find({
+      where: { topic: { id: topicId } },
+    });
+  }
 }
