@@ -42,4 +42,8 @@ export class TopicsService {
     await this.findTopic(id);
     return await this.commentService.findTopicComments(id);
   }
+
+  async findByCategoryId(id: number) {
+    return this.topicRepository.find({ where: { category: { id } } });
+  }
 }

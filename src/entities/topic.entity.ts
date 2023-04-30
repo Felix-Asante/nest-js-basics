@@ -1,5 +1,13 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Comment } from './comment.entity';
+import { Category } from './category.entity';
 
 @Entity()
 export class Topic {
@@ -11,6 +19,9 @@ export class Topic {
 
   @Column({ nullable: false })
   description: string;
+
+  @ManyToOne(() => Category, (category) => category.topic)
+  category: Category;
 
   @OneToMany(() => Comment, (comment) => comment.user)
   comments: Comment[];

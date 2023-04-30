@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ORMConfig } from './config/ormConfig';
 import { TopicsModule } from './topics/topics.module';
 import { TopicsService } from './topics-/topics-.service';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { TopicsService } from './topics-/topics-.service';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot(ORMConfig),
     TopicsModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService, TopicsService],
