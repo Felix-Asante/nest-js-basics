@@ -33,7 +33,7 @@ export class UserController {
   }
 
   @Get(':id/comments')
-  getUserComments(@Param('id') id: string) {
+  getUserComments(@Param('id') id: number) {
     return this.commentService.findUserComments(id);
   }
 }
